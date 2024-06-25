@@ -26,4 +26,12 @@ public class ArticuloInsumoService extends BaseService<ArticuloInsumo, Long>{
             throw new Exception(e.getMessage());
         }
     }
+
+    public List<ArticuloInsumo> unidadMedida(Long id) throws Exception {
+        try {
+            return articuloInsumoRepository.findAllByUnidadMedida_Id(id);
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
 }

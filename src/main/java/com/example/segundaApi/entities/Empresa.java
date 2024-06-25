@@ -7,7 +7,7 @@ import lombok.*;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "empresa")
+@Table(name = "empresas")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

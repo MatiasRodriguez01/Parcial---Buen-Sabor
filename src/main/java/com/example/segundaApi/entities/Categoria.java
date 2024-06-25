@@ -8,7 +8,7 @@ import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "categoria")
+@Table(name = "categorias")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

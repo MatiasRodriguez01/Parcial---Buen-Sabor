@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface ArticuloManuFacturadoRepository extends BaseRepository<ArticuloManuFacturado, Long> {
 
     List<ArticuloManuFacturado> findAllByCategoria_Id(Long categoriaId);
+
+    List<ArticuloManuFacturado> findAllByUnidadMedida_Id(Long unidadMedidaId);
 }

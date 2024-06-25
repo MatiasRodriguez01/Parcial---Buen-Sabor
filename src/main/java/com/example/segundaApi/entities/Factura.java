@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "factura")
+@Table(name = "facturas")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/detalle-pedidos")
+@RequestMapping("/detallePedido")
 public class DetallePedidoController extends BaseController<DetallePedido, Long>{
 
     @Autowired
@@ -25,6 +25,12 @@ public class DetallePedidoController extends BaseController<DetallePedido, Long>
     @GetMapping("/pedido/{id}")
     public ResponseEntity<List<DetallePedido>> listarPorPedido(@PathVariable Long idPedido) throws Exception {
         List<DetallePedido> detallePedidos = detallePedidoService.listarPorPedido(idPedido);
+        return ResponseEntity.ok(detallePedidos);
+    }
+
+    @GetMapping("/articulo/{id}")
+    public ResponseEntity<List<DetallePedido>> listarPorArticulo(@PathVariable Long idArticulo) throws Exception {
+        List<DetallePedido> detallePedidos = detallePedidoService.listarPorArticulo(idArticulo);
         return ResponseEntity.ok(detallePedidos);
     }
 

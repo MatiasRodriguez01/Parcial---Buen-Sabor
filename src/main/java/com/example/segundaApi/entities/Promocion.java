@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "promocion")
+@Table(name = "promociones")
 @Getter
 @Setter
 @AllArgsConstructor

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/articulos-insumo")
+@RequestMapping("/articuloInsumo")
 public class ArticuloInsumoController extends BaseController<ArticuloInsumo, Long> {
 
     @Autowired
@@ -29,6 +29,12 @@ public class ArticuloInsumoController extends BaseController<ArticuloInsumo, Lon
     @GetMapping("/categoria/{id}")
     public ResponseEntity<List<ArticuloInsumo>> buscarPorCategoria(@PathVariable Long id) throws Exception {
         List<ArticuloInsumo> articuloInsumo = articuloInsumoService.categoria(id);
+        return ResponseEntity.ok(articuloInsumo);
+    }
+
+    @GetMapping("/unidadMedida/{id}")
+    public ResponseEntity<List<ArticuloInsumo>> buscarPorUnidadMedida(@PathVariable Long id) throws Exception {
+        List<ArticuloInsumo> articuloInsumo = articuloInsumoService.unidadMedida(id);
         return ResponseEntity.ok(articuloInsumo);
     }
 }

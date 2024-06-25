@@ -29,4 +29,14 @@ public class DetallePedidoService extends BaseService<DetallePedido, Long>{
 
     }
 
+    @Transactional
+    public List<DetallePedido> listarPorArticulo(Long idArticulo) throws Exception {
+        try{
+            return detallePedidoRepository.findAllByArticulo_Id(idArticulo);
+        }catch (Exception ex){
+            throw new Exception(ex.getMessage());
+        }
+
+    }
+
 }

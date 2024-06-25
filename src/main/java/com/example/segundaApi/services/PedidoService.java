@@ -21,33 +21,10 @@ public class PedidoService extends BaseService<Pedido, Long> {
     }
 
     @Transactional
-    public Pedido calcularTotal(Pedido pedido) throws Exception {
-        try{
-
-            List<DetallePedido> detallePedidos = detallePedidoService.listarPorPedido(pedido.getId());
-            Double total = 0.0;
-
-            if (detallePedidos != null && !detallePedidos.isEmpty()) {
-                total = detallePedidos.stream()
-                        .mapToDouble(detalle -> detalle.getSubTotal())
-                        .sum();
-            }
-
-            pedido.setTotal(total);
-            return pedidoRepository.save(pedido);
-
-        }catch(Exception ex){
-            throw new Exception(ex.getMessage());
-        }
-    }
-
-    @Override
-    @Transactional
-    public Pedido actualizar(Pedido pedido) throws Exception {
-        try{
-            calcularTotal(pedido);
-            return pedidoRepository.save(pedido);
-        }catch (Exception ex){
+    public List<Pedido> domicilio(Long idDomicilio) throws Exception {
+        try {
+            return pedidoRepository.findAllByDomicilio_Id(idDomicilio);
+        } catch (Exception ex) {
             throw new Exception(ex.getMessage());
         }
     }
@@ -87,4 +64,37 @@ public class PedidoService extends BaseService<Pedido, Long> {
             throw new Exception(ex.getMessage());
         }
     }
+
+    @Transactional
+    public Pedido calcularTotal(Pedido pedido) throws Exception {
+        try{
+
+            List<DetallePedido> detallePedidos = detallePedidoService.listarPorPedido(pedido.getId());
+            Double total = 0.0;
+
+            if (detallePedidos != null && !detallePedidos.isEmpty()) {
+                total = detallePedidos.stream()
+                        .mapToDouble(detalle -> detalle.getSubTotal())
+                        .sum();
+            }
+
+            pedido.setTotal(total);
+            return pedidoRepository.save(pedido);
+
+        }catch(Exception ex){
+            throw new Exception(ex.getMessage());
+        }
+    }
+
+    @Override
+    @Transactional
+    public Pedido actualizar(Pedido pedido) throws Exception {
+        try{
+            calcularTotal(pedido);
+            return pedidoRepository.save(pedido);
+        }catch (Exception ex){
+            throw new Exception(ex.getMessage());
+        }
+    }
+
 }

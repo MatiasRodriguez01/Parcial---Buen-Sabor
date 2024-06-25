@@ -20,10 +20,10 @@ public class PedidoController extends BaseController<Pedido, Long> {
         super(pedidoService);
     }
 
-    @PutMapping("/total")
-    public Optional<Pedido> calcularTotal(@RequestBody Pedido pedido) throws Exception {
-        Pedido pedido_aux = pedidoService.calcularTotal(pedido);
-        return Optional.ofNullable(pedido_aux);
+    @GetMapping("/domicilios/{idDomicilio}")
+    public ResponseEntity<List<Pedido>> pedidoPorDomicilio(@PathVariable Long idDomicilio) throws Exception {
+        List<Pedido> domicilios = pedidoService.domicilio(idDomicilio);
+        return ResponseEntity.ok(domicilios);
     }
 
     @GetMapping("/clientes/{idCliente}")
@@ -49,4 +49,11 @@ public class PedidoController extends BaseController<Pedido, Long> {
         List<Pedido> facturas = pedidoService.factura(idFactura);
         return ResponseEntity.ok(facturas);
     }
+
+    @PutMapping("/total")
+    public Optional<Pedido> calcularTotal(@RequestBody Pedido pedido) throws Exception {
+        Pedido pedido_aux = pedidoService.calcularTotal(pedido);
+        return Optional.ofNullable(pedido_aux);
+    }
+
 }

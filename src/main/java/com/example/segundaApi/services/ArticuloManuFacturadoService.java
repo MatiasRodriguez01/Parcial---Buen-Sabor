@@ -31,4 +31,13 @@ public class ArticuloManuFacturadoService extends BaseService<ArticuloManuFactur
             throw new Exception(e.getMessage());
         }
     }
+
+    @Transactional
+    public List<ArticuloManuFacturado> unidadMedida(Long id) throws Exception{
+        try {
+            return articuloManuFacturadoRepository.findAllByUnidadMedida_Id(id);
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
 }

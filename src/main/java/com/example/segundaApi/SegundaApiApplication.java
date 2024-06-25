@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @SpringBootApplication
 public class SegundaApiApplication { 
@@ -158,6 +160,7 @@ public class SegundaApiApplication {
             empleadoRepository.save(empleado1);
 
             Cliente cliente1 = Cliente.builder()
+                    .rol(Rol.CLIENTE)
                     .domicilio(dom1)
                     .imagenCliente(ima2)
                     .usuarioCliente(usu2)
@@ -277,6 +280,16 @@ public class SegundaApiApplication {
                     .build();
             unidadMedidaRepository.save(unMedida);
 
+
+            Imagen imagenInsumo1 = new Imagen("Imagenes de articulo insumo 1");
+            imagenRepository.save(imagenInsumo1);
+
+            Imagen imagenInsumo2 = new Imagen("Imagenes de articulo insumo 2");
+            imagenRepository.save(imagenInsumo2);
+
+            Imagen imagenInsumo3 = new Imagen("Imagenes de articulo insumo 3");
+            imagenRepository.save(imagenInsumo3);
+
             ArticuloInsumo artInsumo1 = ArticuloInsumo.builder()
                     .precioCompra(460.5)
                     .stockActual(36)
@@ -285,9 +298,25 @@ public class SegundaApiApplication {
                     .build();
             artInsumo1.setDenominacion("Articulo insumo 1");
             artInsumo1.setPrecioVenta(230.0);
+            artInsumo1.getImagenesArticulo().add(imagenInsumo1);
+            artInsumo1.getImagenesArticulo().add(imagenInsumo2);
+            artInsumo1.getImagenesArticulo().add(imagenInsumo3);
             artInsumo1.setCategoria(cat1);
             artInsumo1.setUnidadMedida(unMedida);
             articuloInsumoRepository.save(artInsumo1);
+
+            detalle1.setArticulo(artInsumo1);
+            detallePedidoRepository.save(detalle1);
+
+
+            Imagen imagenManu1 = new Imagen("Imagenes de articulo Manufacturado 1");
+            imagenRepository.save(imagenManu1);
+
+            Imagen imagenManu2 = new Imagen("Imagenes de articulo Manufacturado 2");
+            imagenRepository.save(imagenManu2);
+
+            Imagen imagenManu3 = new Imagen("Imagenes de articulo Manufacturado 3");
+            imagenRepository.save(imagenManu3);
 
             ArticuloManuFacturado artManuf1 = ArticuloManuFacturado.builder()
                     .descripcion("Descripcion art manuf 1")
@@ -296,9 +325,15 @@ public class SegundaApiApplication {
                     .build();
             artManuf1.setDenominacion("Articulo Manufacturado 1");
             artManuf1.setPrecioVenta(140.5);
+            artManuf1.getImagenesArticulo().add(imagenManu1);
+            artManuf1.getImagenesArticulo().add(imagenManu2);
+            artManuf1.getImagenesArticulo().add(imagenManu3);  
             artManuf1.setCategoria(cat1);
             artManuf1.setUnidadMedida(unMedida);
             articuloManuFacturadoRepository.save(artManuf1);
+
+            detalle2.setArticulo(artManuf1);
+            detallePedidoRepository.save(detalle2);
 
             ArticuloManuFacturadoDetalle artManufDet1 = ArticuloManuFacturadoDetalle.builder()
                     .cantidad(2)

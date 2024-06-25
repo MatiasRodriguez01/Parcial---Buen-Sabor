@@ -5,7 +5,7 @@ import lombok.*;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "articulo_manu_facturado")
+@Table(name = "articulo_manufacturado_detalle")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

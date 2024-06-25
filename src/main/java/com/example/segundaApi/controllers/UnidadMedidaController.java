@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/unidades-medidas")
+@RequestMapping("/unidadMedida")
 public class UnidadMedidaController extends BaseController<UnidadMedida, Long>{
 
     @Autowired

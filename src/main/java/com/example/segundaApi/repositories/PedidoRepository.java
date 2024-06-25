@@ -9,6 +9,8 @@ import java.util.List;
 @Repository
 public interface PedidoRepository extends BaseRepository<Pedido, Long>{
 
+    List<Pedido> findAllByDomicilio_Id(Long idDomicilio);
+
     List<Pedido> findAllByCliente_Id(Long idCliente);
 
     List<Pedido> findAllByEmpleado_Id(Long idEmpleado);

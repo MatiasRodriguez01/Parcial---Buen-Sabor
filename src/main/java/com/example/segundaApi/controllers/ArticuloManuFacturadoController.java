@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/articulos-manufacturados")
+@RequestMapping("/articuloManufacturados")
 public class ArticuloManuFacturadoController extends BaseController<ArticuloManuFacturado, Long>{
 
     @Autowired
@@ -27,6 +27,12 @@ public class ArticuloManuFacturadoController extends BaseController<ArticuloManu
     @GetMapping("/categoria/{id}")
     public ResponseEntity<List<ArticuloManuFacturado>> buscarPorCategoria(@PathVariable Long id) throws Exception {
         List<ArticuloManuFacturado> articuloManuFacturado = autoArticuloManuFacturadoService.categoria(id);
+        return ResponseEntity.ok(articuloManuFacturado);
+    }
+
+    @GetMapping("/unidadMedida/{id}")
+    public ResponseEntity<List<ArticuloManuFacturado>> buscarPorUnidadMedida(@PathVariable Long id) throws Exception {
+        List<ArticuloManuFacturado> articuloManuFacturado = autoArticuloManuFacturadoService.unidadMedida(id);
         return ResponseEntity.ok(articuloManuFacturado);
     }
 }

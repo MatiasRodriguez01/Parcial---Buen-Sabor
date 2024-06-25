@@ -19,6 +19,15 @@ public class SucursalService extends BaseService<Sucursal, Long> {
     }
 
     @Transactional
+    public List<Sucursal> domicilio(Long id) throws Exception{
+        try {
+            return sucursalRepository.findAllByDomicilio_Id(id);
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Transactional
     public List<Sucursal> empresa(Long id) throws Exception{
         try {
             return sucursalRepository.findAllByEmpresa_Id(id);

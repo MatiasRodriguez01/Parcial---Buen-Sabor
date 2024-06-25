@@ -27,6 +27,12 @@ public class SucursalController extends BaseController<Sucursal, Long> {
         super(sucursalService);
     }
 
+    @GetMapping("/domicilio/{id}")
+    public ResponseEntity<List<Sucursal>> listarDomicilio(@PathVariable Long id) throws Exception{
+        List<Sucursal> emp = sucursalService.domicilio(id);
+        return ResponseEntity.ok(emp);
+    }
+
     @GetMapping("/empresa/{id}")
     public ResponseEntity<List<Sucursal>> listarEmpresa(@PathVariable Long id) throws Exception{
         List<Sucursal> emp = sucursalService.empresa(id);

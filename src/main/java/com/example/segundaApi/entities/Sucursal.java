@@ -7,7 +7,7 @@ import java.time.LocalTime;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "sucursal")
+@Table(name = "sucursales")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

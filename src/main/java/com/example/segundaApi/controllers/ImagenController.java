@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(name = "Imagen")
+@RequestMapping("/imagenes")
 public class ImagenController extends BaseController<Imagen, Long> {
 
     @Autowired

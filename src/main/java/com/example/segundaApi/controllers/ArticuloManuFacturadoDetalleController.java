@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/articulos-manufacturados-detalles")
+@RequestMapping("/articulosManufacturadosMetalles")
 public class ArticuloManuFacturadoDetalleController extends BaseController<ArticuloManuFacturadoDetalle, Long>{
 
     public ArticuloManuFacturadoDetalleController(ArticuloManuFacturadoDetalleService articuloManuFacturadoDetalleService) {

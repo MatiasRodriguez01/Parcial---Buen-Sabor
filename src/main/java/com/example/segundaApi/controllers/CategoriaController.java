@@ -20,7 +20,7 @@ public class CategoriaController extends BaseController<Categoria, Long> {
     @Autowired
     private CategoriaService categoriaService;
 
-    @PostMapping("/subcategoria/{id_CP}")
+    @PostMapping("/subCategoria/{id_CP}")
     public Optional<Categoria> agregarSubcategoria(@PathVariable Long id_CP, @RequestBody Categoria subcategoria) throws Exception {
         Categoria catPadre = categoriaService.agregarSubcategoria(id_CP, subcategoria);
         return Optional.ofNullable(catPadre);
